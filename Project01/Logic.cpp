@@ -12,11 +12,15 @@ bool is_matrix_null(int matrix[N][N]) {
 				break; 
 			}
 		}
+		if (!null) {
+			break;
+		}
 	}
 
 	return null; 
 }
-
+//worst: O(54)
+//best: O(12)
 
 bool is_matrix_quadratic(int matrix[N][N]) {
 	bool quadratic = true;
@@ -37,7 +41,8 @@ bool is_matrix_quadratic(int matrix[N][N]) {
 
 	return quadratic;
 }
-
+//worst: O(99)
+//best: O(19)
 
 bool is_matrix_unit(int matrix[N][N]) {
 	bool unit = true;
@@ -58,6 +63,8 @@ bool is_matrix_unit(int matrix[N][N]) {
 
 	return unit;
 }
+//worst: O(99)
+//best: O(19)
 
 bool is_matrix_quadratic_side_diagonal(int matrix[N][N]) {
 	bool quadratic = true;
@@ -78,6 +85,8 @@ bool is_matrix_quadratic_side_diagonal(int matrix[N][N]) {
 
 	return quadratic;
 }
+//worst: O(99)
+//best: O(19)
 
 bool is_matrix_unit_side_diagonal(int matrix[N][N]) {
 	bool unit = true;
@@ -98,3 +107,5 @@ bool is_matrix_unit_side_diagonal(int matrix[N][N]) {
 
 	return unit;
 }
+//worst: O(99)
+//best: O(19)

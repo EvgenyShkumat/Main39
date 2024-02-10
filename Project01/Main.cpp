@@ -12,7 +12,7 @@ bool is_matrix_quadratic_side_diagonal(int matrix[N][N]);
 bool is_matrix_unit_side_diagonal(int matrix[N][N]);
 
 int main() {
-	int matrix[N][N] = { {0, 0, 1}, {0, 2, 0}, {1, 0, 0} };
+	int matrix[N][N] = { {0, 0, 1}, {0, 1, 0}, {1, 0, 0} };
 
 	cout << "Matrix:\n" << convert_matrix_to_string(matrix);
 
