@@ -1,56 +1,53 @@
 #define N 3
 
 bool is_matrix_null(int matrix[N][N]) {
-	bool null = true; // 1
-	//1
-	for (int i = 0; i < N; i++) //  2
-	{ //1
-		for (int j = 0; j < N; j++)//  2
+	bool null = true; 
+	
+	for (int i = 0; i < N; i++) 
+	{ 
+		for (int j = 0; j < N; j++)
 		{
-			if (matrix[i][j] != 0) {// 1
-				null = false; // 1
-				break; // 1
+			if (matrix[i][j] != 0) {
+				null = false; 
+				break; 
 			}
 		}
 	}
 
-	return null; // 1
+	return null; 
 }
-//worst: O(57)
-//O(6n^2 + 2n + 4)
+
 
 bool is_matrix_quadratic(int matrix[N][N]) {
-	bool quadratic = true;//1
-	//1
-	for (int i = 0; i < N; i++)//2
-	{ //1
-		for (int j = 0; j < N; j++)//2
+	bool quadratic = true;
+	
+	for (int i = 0; i < N; i++)
+	{ 
+		for (int j = 0; j < N; j++)
 		{
-			if (matrix[i][j] != 0 && i != j) {//3
-				quadratic = false;//1
-				break;//1
+			if ((matrix[i][j] != 0 && i != j) || (i == j && matrix[i][j] == 0)) {
+				quadratic = false;
+				break;
 			}
 		}
-		if (!quadratic) {//1
-			break;//1
+		if (!quadratic) {
+			break;
 		}
 	}
 
-	return quadratic;//1
+	return quadratic;
 }
-//best: O(21)
-//worst: O(60)
-//O(6n^2 + 3n + 3)
+
 
 bool is_matrix_unit(int matrix[N][N]) {
 	bool unit = true;
 	
 	for (int i = 0; i < N; i++)
-	{
-		for (int j = 0; j < N; j++)
+	{ 
+		for (int j = 0; j < N; j++) 
 		{
-			if ((matrix[i][j] != 0 && i != j) || (matrix[i][j] != 1 && i == j)) {
-				unit = false;
+			if ((matrix[i][j] != 0 && i != j) || (matrix[i][j] != 1 && i == j)) { 
+				unit = false; 
 				break;
 			}
 		}
@@ -60,4 +57,24 @@ bool is_matrix_unit(int matrix[N][N]) {
 	}
 
 	return unit;
+}
+
+bool is_matrix_quadratic_side_diagonal(int matrix[N][N]) {
+	bool quadratic = true;
+
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < N; j++)
+		{
+			if ((matrix[i][j] != 0 && i + j != N - 1) || (matrix[i][j] == 0 && i + j == N - 1)) {
+				quadratic = false;
+				break;
+			}
+		}
+		if (!quadratic) {
+			break;
+		}
+	}
+
+	return quadratic;
 }
