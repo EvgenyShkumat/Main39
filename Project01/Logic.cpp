@@ -78,3 +78,23 @@ bool is_matrix_quadratic_side_diagonal(int matrix[N][N]) {
 
 	return quadratic;
 }
+
+bool is_matrix_unit_side_diagonal(int matrix[N][N]) {
+	bool unit = true;
+
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < N; j++)
+		{
+			if ((matrix[i][j] != 0 && i + j != N - 1) + (matrix[i][j] != 1 && i + j == N - 1)) {
+				unit = false;
+				break;
+			}
+		}
+		if (!unit) {
+			break;
+		}
+	}
+
+	return unit;
+}
