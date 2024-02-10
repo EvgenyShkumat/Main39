@@ -16,7 +16,25 @@ bool is_matrix_null(int matrix[N][N]) {
 
 	return null; // 1
 }
-//27 + 1 + 1 + 1 + 18 + 3 + 6
-//O(57)
-//O(n * n * 3 + n * n * 2 + n * n + n * 2 + 3)
+//worst: O(57)
 //O(6n^2 + 2n + 3)
+
+bool is_matrix_quadratic(int matrix[N][N]) {
+	bool quadratic = true;
+	
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < N; j++)
+		{
+			if (matrix[i][j] != 0 && i != j) {
+				quadratic = false;
+				break;
+			}
+		}
+		if (!quadratic) {
+			break;
+		}
+	}
+
+	return quadratic;
+}
